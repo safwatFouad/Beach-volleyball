@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class vollyball : MonoBehaviour {
+public class volleypc : MonoBehaviour {
 
 	public Transform target;
 
@@ -25,7 +25,7 @@ public class vollyball : MonoBehaviour {
 
 	public void player()
 	{
-		
+
 		mytransform = transform;
 		StartCoroutine (Simulatprojectileplayer());
 	}
@@ -43,7 +43,7 @@ public class vollyball : MonoBehaviour {
 		float projectile_velocity = target_distance / (Mathf.Sin (2 * fireangle * Mathf.Deg2Rad) / gravity);
 
 		float Vx = Mathf.Sqrt (projectile_velocity) * Mathf.Cos (fireangle * Mathf.Deg2Rad);
-			
+
 		float Vy = Mathf.Sqrt (projectile_velocity) * Mathf.Sin (fireangle * Mathf.Deg2Rad);
 
 		float flightduration = target_distance / Vx;
@@ -60,7 +60,7 @@ public class vollyball : MonoBehaviour {
 			yield return null;
 
 		}
-			
+
 		//transform.position = new Vector3 (336.22f,42.41f,279.41f);
 	}
 
@@ -70,7 +70,7 @@ public class vollyball : MonoBehaviour {
 
 
 
-	}
+}
 
 
 

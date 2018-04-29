@@ -21,7 +21,7 @@ public class playercontroller : MonoBehaviour {
 
 
 
- 
+
 
 
 	// Use this for initialization
@@ -38,18 +38,11 @@ public class playercontroller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-	
+
 
 
 		Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 		Vector2 inputDir = input.normalized;
-
-		if (Input.GetKey (KeyCode.T)) {
-			
-			vollyball ball = theball.GetComponent ("vollyball")as vollyball;
-		   ball.Simulatprojectile();
-		
-		}
 
 
 
@@ -60,22 +53,34 @@ public class playercontroller : MonoBehaviour {
 			isGrounded = false;
 		}
 
-		if (Input.GetKey(KeyCode.X)  && isGrounded == true && transform.position.x - theball.transform.position.x <=5)
+		if  (Input.GetKey(KeyCode.X)  && isGrounded == true  && theball.transform.position.x - this.transform.position.x <=10)
 		{
 			anim.SetTrigger("isthrowball");
 
 			vollyball ball =theball.GetComponent("vollyball")as vollyball;
-			//ball.ReleaseMe ();
+		
+			ball.player ();
 
-
-
-			/*if(teleportsound !=null)
+			if(teleportsound !=null)
 			{
-				AudioSource.PlayClipAtPoint (teleportsound , Camera.main.transform.position);
+				AudioSource.PlayClipAtPoint (teleportsound , this.transform.position);
 
-			}*/
+			}
 
 		}
+
+
+	
+
+
+
+
+
+
+
+
+
+
 
 		if(isGrounded)
 		{
@@ -112,6 +117,7 @@ public class playercontroller : MonoBehaviour {
 		isGrounded = true;
 
 	}
+
 
 
 }
